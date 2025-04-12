@@ -299,110 +299,180 @@ app.get('/demo', (req, res) => {
                         
                         <p>O navegador, por sua vez, sabe como descomprimir esses dados, tornando tudo transparente para o usuário final. Isso resulta em sites mais rápidos, menor uso de banda e melhor desempenho, especialmente em redes lentas ou dispositivos móveis.</p>
                     </div>
-                    
-                    <div class="algorithm">
-                        <h3>Algoritmo Gzip</h3>
-                        <div class="step">
-                            <h4>1. LZ77 - Compressão de Repetições</h4>
-                            <p>O Gzip usa o algoritmo LZ77 para encontrar e substituir sequências repetidas no texto. Ele procura por padrões que se repetem e os substitui por referências.</p>
-                            <div class="example">
-                                <div class="example-label">Exemplo:</div>
-                                <pre>Texto Original: "ABABABABABABABAB"
-Após LZ77: "AB[8,2]" (8 repetições começando na posição 2)</pre>
+
+                    <div class="algorithm-section">
+                        <h3>1. Como Funciona o Gzip</h3>
+                        <div class="algorithm-step">
+                            <h4>Princípio Básico</h4>
+                            <p>O Gzip combina duas técnicas principais para reduzir o tamanho dos dados:</p>
+                            
+                            <div class="technique">
+                                <h5>LZ77 (Lempel-Ziv 77)</h5>
+                                <p>Identifica padrões e sequências repetitivas no texto, substituindo-as por referências.</p>
+                                <div class="example">
+                                    <div class="example-label">Exemplo:</div>
+                                    <pre>Texto Original: "ABCABCABCABC"
+Após LZ77: "ABC" + [referência para repetição]</pre>
+                                </div>
                             </div>
-                        </div>
-                        <div class="step">
-                            <h4>2. Huffman - Codificação de Frequência</h4>
-                            <p>Após o LZ77, o Gzip usa o algoritmo de Huffman para atribuir códigos mais curtos aos caracteres mais frequentes, reduzindo ainda mais o tamanho.</p>
-                            <div class="example">
-                                <div class="example-label">Exemplo:</div>
-                                <pre>Texto: "ABABAB"
-Frequências: A=3, B=3
+
+                            <div class="technique">
+                                <h5>Codificação de Huffman</h5>
+                                <p>Atribui códigos binários de comprimento variável aos caracteres com base em sua frequência.</p>
+                                <div class="example">
+                                    <div class="example-label">Exemplo:</div>
+                                    <pre>Texto: "AABBB"
+Frequências: A=2, B=3
 Códigos: A=0, B=1
-Resultado: "010101"</pre>
+Resultado: "00111"</pre>
+                                </div>
                             </div>
                         </div>
-                        <div class="step">
-                            <h4>Uso em Sites</h4>
-                            <p>O Gzip é suportado pela maioria dos navegadores e servidores. Ele é ativado por padrão em muitos servidores web (como Apache, Nginx) e é excelente para comprimir HTML, CSS e JavaScript.</p>
-                            <div class="example">
-                                <div class="example-label">Exemplo Prático:</div>
-                                <pre>Página HTML Original: 50KB
-Após Gzip: ~15KB (70% menor)
-Tempo de Carregamento: 2s → 0.6s</pre>
+
+                        <div class="algorithm-step">
+                            <h4>Aplicação no Contexto de Sites</h4>
+                            <p>No ambiente web, o Gzip é configurado no servidor para comprimir arquivos de texto:</p>
+                            <ol>
+                                <li><strong>Preparação no Servidor:</strong> Verifica suporte do navegador via Accept-Encoding</li>
+                                <li><strong>Transmissão:</strong> Envia arquivos com Content-Encoding: gzip</li>
+                                <li><strong>Descompressão:</strong> Navegador descomprime automaticamente</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="algorithm-section">
+                        <h3>2. Como Funciona o Brotli</h3>
+                        <div class="algorithm-step">
+                            <h4>Princípio Básico</h4>
+                            <p>O Brotli utiliza uma abordagem diferente, combinando dois conceitos principais:</p>
+                            
+                            <div class="technique">
+                                <h5>Dicionário Pré-definido</h5>
+                                <p>Utiliza um dicionário estático com palavras e padrões comuns da web.</p>
+                                <div class="example">
+                                    <div class="example-label">Exemplo:</div>
+                                    <pre>Texto Original: "function greet() { return 'hello'; }"
+Após Brotli: [código para "function"] [código para "return"]</pre>
+                                </div>
+                            </div>
+
+                            <div class="technique">
+                                <h5>Compressão Adaptativa</h5>
+                                <p>Analisa o contexto do arquivo para escolher a melhor estratégia de compressão.</p>
+                                <div class="example">
+                                    <div class="example-label">Exemplo:</div>
+                                    <pre>HTML Original: &lt;div class="container"&gt;Conteúdo&lt;/div&gt;
+Após Brotli: [código para div] [código para class]</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="algorithm-step">
+                            <h4>Aplicação no Contexto de Sites</h4>
+                            <p>O Brotli é adotado por servidores modernos e navegadores recentes:</p>
+                            <ol>
+                                <li><strong>No Servidor:</strong> Detecta compatibilidade via Accept-Encoding</li>
+                                <li><strong>Envio:</strong> Usa Content-Encoding: br</li>
+                                <li><strong>Descompressão:</strong> Navegador descomprime automaticamente</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="process-section">
+                        <h3>3. Do Backend ao Frontend: A Jornada dos Dados</h3>
+                        
+                        <div class="process-step">
+                            <h4>No Backend (Servidor)</h4>
+                            <div class="step-content">
+                                <ul>
+                                    <li>Configuração e compressão dos dados</li>
+                                    <li>Inclusão de cabeçalhos HTTP apropriados</li>
+                                    <li>Seleção do algoritmo baseado na compatibilidade</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="process-step">
+                            <h4>Durante a Transmissão</h4>
+                            <div class="step-content">
+                                <ul>
+                                    <li>Redução significativa do tamanho dos dados</li>
+                                    <li>Menor latência e tempo de download</li>
+                                    <li>Economia de banda</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="process-step">
+                            <h4>No Frontend (Navegador)</h4>
+                            <div class="step-content">
+                                <ul>
+                                    <li>Detecção automática do método de compressão</li>
+                                    <li>Descompressão transparente dos dados</li>
+                                    <li>Renderização da página com alta performance</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
 
-                    <div class="algorithm">
-                        <h3>Algoritmo Brotli</h3>
-                        <div class="step">
-                            <h4>1. Dicionário Estático</h4>
-                            <p>O Brotli usa um dicionário pré-definido de palavras e padrões comuns para substituir sequências conhecidas, especialmente eficiente para conteúdo web.</p>
-                            <div class="example">
-                                <div class="example-label">Exemplo:</div>
-                                <pre>Texto Original: "function hello() { return 'hello'; }"
-Após Dicionário: "fn hello() { rt 'hello'; }"</pre>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <h4>2. Compressão de Contexto</h4>
-                            <p>O Brotli analisa o contexto do texto para otimizar a compressão baseada no tipo de conteúdo, usando diferentes estratégias para diferentes tipos de dados.</p>
-                            <div class="example">
-                                <div class="example-label">Exemplo:</div>
-                                <pre>HTML Original: "<div class="container">Texto</div>"
-Após Contexto: "<.container>Texto</>"</pre>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <h4>Uso em Sites</h4>
-                            <p>O Brotli foi desenvolvido pelo Google com foco na web. Ele oferece compressão melhor que o Gzip, especialmente para arquivos pequenos como páginas HTML. Hoje é suportado por quase todos os navegadores modernos e é ideal para sites que priorizam performance.</p>
-                            <div class="example">
-                                <div class="example-label">Exemplo Prático:</div>
-                                <pre>Página HTML Original: 50KB
-Após Brotli: ~10KB (80% menor)
-Tempo de Carregamento: 2s → 0.4s</pre>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="algorithm">
-                        <h3>Comparação Prática</h3>
-                        <div class="step">
-                            <h4>Exemplo com Página Web Real</h4>
-                            <div class="example">
-                                <div class="example-label">Página HTML Original:</div>
-                                <pre>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;Meu Site&lt;/title&gt;
-    &lt;style&gt;
-        .container { max-width: 1200px; margin: 0 auto; }
-        .header { background: #f8f9fa; padding: 20px; }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class="container"&gt;
-        &lt;header class="header"&gt;
-            &lt;h1&gt;Título&lt;/h1&gt;
-            &lt;p&gt;Parágrafo de exemplo&lt;/p&gt;
-        &lt;/header&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre>
-                                <div class="example-label">Resultados:</div>
-                                <pre>Gzip:
-- Tamanho Original: 500 bytes
-- Após Compressão: 200 bytes (60% menor)
-- Tempo de Carregamento: 100ms → 40ms
-
-Brotli:
-- Tamanho Original: 500 bytes
-- Após Compressão: 150 bytes (70% menor)
-- Tempo de Carregamento: 100ms → 30ms</pre>
-                            </div>
-                        </div>
-                    </div>
+                    <style>
+                        .algorithm-section {
+                            margin: 30px 0;
+                            padding: 20px;
+                            background: #f8f9fa;
+                            border-radius: 10px;
+                        }
+                        .algorithm-step {
+                            margin: 20px 0;
+                            padding: 15px;
+                            background: white;
+                            border-radius: 8px;
+                            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+                        }
+                        .technique {
+                            margin: 15px 0;
+                            padding: 15px;
+                            background: #f8f9fa;
+                            border-radius: 8px;
+                        }
+                        .technique h5 {
+                            color: #2c3e50;
+                            margin-top: 0;
+                        }
+                        .example {
+                            margin-top: 10px;
+                            padding: 10px;
+                            background: white;
+                            border-radius: 5px;
+                            font-family: 'Consolas', monospace;
+                        }
+                        .example-label {
+                            font-weight: bold;
+                            color: #7f8c8d;
+                            margin-bottom: 5px;
+                        }
+                        .process-step {
+                            margin: 20px 0;
+                            padding: 15px;
+                            background: white;
+                            border-radius: 8px;
+                            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+                        }
+                        .process-step h4 {
+                            color: #2c3e50;
+                            margin-top: 0;
+                            padding-bottom: 10px;
+                            border-bottom: 2px solid #3498db;
+                        }
+                        .step-content ul {
+                            margin: 10px 0;
+                            padding-left: 20px;
+                        }
+                        .step-content li {
+                            margin: 8px 0;
+                            line-height: 1.5;
+                        }
+                    </style>
                 </div>
             </div>
             <div class="footer">
