@@ -63,14 +63,6 @@ A aplicação permite que você:
 ## Contribuições
 Este projeto foi desenvolvido para fins educacionais como parte do seminário de Comunicações Digitais 2.
 
-## Como Testar a Compressão
-
-1. Use as ferramentas de desenvolvedor do navegador (F12)
-2. Vá para a aba "Network"
-3. Recarregue a página
-4. Verifique o header "Content-Encoding" na resposta
-5. Compare o tamanho original vs. comprimido
-
 ## Observações
 
 - O servidor usa o middleware `compression` do Express
