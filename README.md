@@ -67,4 +67,4 @@ Este projeto foi desenvolvido para fins educacionais como parte do seminário de
 
 - O servidor usa o middleware `compression` do Express
 - A compressão é aplicada automaticamente quando suportada pelo cliente
-- Você pode desabilitar a compressão enviando o header `x-no-compression` 
+- Você pode desabilitar a compressão enviando o header `x-no-compression`
