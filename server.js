@@ -171,7 +171,8 @@ app.get('/', (req, res) => {
                     <h1>Compressão de Dados</h1>
                     <h2>Seminário CD2</h2>
                     <div class="authors">
-                        <span>Matheus Henrique</span>
+                        <span>Matheus Pereira de Andrade</span>
+                        <span>Alfredo Francisco Amancio Mota</span>
                         <span>Universidade Federal de Uberlândia</span>
                     </div>
                 </div>
