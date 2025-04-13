@@ -1,0 +1,103 @@
+body { 
+    font-family: Arial, sans-serif; 
+    margin: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.text-display {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+.text-header {
+    background: #f8f9fa;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.text-label {
+    font-weight: bold;
+    color: #2c3e50;
+}
+.text-size {
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
+.text-body {
+    padding: 15px;
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: monospace;
+    line-height: 1.5;
+    max-height: 300px;
+    overflow-y: auto;
+}
+.compressed-text {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 0.9em;
+    word-break: break-all;
+}
+.decompressed {
+    margin-top: 15px;
+    background: #e8f4f8;
+}
+.decompressed .text-label {
+    color: #27ae60;
+}
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    background: #2c3e50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.back-button:hover {
+    background: #34495e;
+}
+.compression-summary {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+.compression-summary h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+.summary-item {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+.summary-label {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+.summary-value {
+    font-size: 1.2em;
+    color: #34495e;
+    margin-bottom: 5px;
+}
+.summary-detail {
+    font-size: 0.9em;
+    color: #27ae60;
+}

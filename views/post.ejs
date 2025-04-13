@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compressão de Dados - Seminário CD2</title>
+    <link rel="stylesheet" href="style_post.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>Compressão de Dados</h1>
+            <h2>Seminário - Comunicações Digitais 2</h2>
+            <div class="authors">
+                <span>Matheus Pereira de Andrade</span>
+                <span>Alfredo Francisco Amancio Mota</span>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="content">
+            <h2>Resultados da Compressão</h2>
+            <div class="text-content">
+                <h2>Seu Texto:</h2>
+                <div class="text-display">
+                    <div class="text-header">
+                        <span class="text-label">Texto Original</span>
+                        <span class="text-size"><%=formatBytes(originalSize)%></span>
+                    </div>
+                    <pre class="text-body"><%=texto%></pre>
+                </div>
+                
+                <div class="text-display">
+                    <div class="text-header">
+                        <span class="text-label">Texto Comprimido (Gzip)</span>
+                        <span class="text-size">
+                            <%=formatBytes(gzipSize)%> 
+                            (<%=((1 - gzipSize/originalSize) * 100).toFixed(2)%> %menor)
+                        </span>
+                    </div>
+                    <div class="compressed-text">
+                        <pre><%=gzipText%></pre>
+                    </div>
+                    <div class="text-header decompressed">
+                        <span class="text-label">Texto Descomprimido (Gzip)</span>
+                        <span class="text-size"><%=formatBytes(Buffer.byteLength(gzipDecompressed))%></span>
+                    </div>
+                    <pre class="text-body"><%=gzipDecompressed%></pre>
+                </div>
+                
+                <div class="text-display">
+                    <div class="text-header">
+                        <span class="text-label">Texto Comprimido (Brotli)</span>
+                        <span class="text-size">
+                            <%=formatBytes(brotliSize)%>
+                             (<%=((1 - brotliSize/originalSize) * 100).toFixed(2)%> % menor)
+                            </span>
+                    </div>
+                    <div class="compressed-text">
+                        <pre><%=brotliText%></pre>
+                    </div>
+                    <div class="text-header decompressed">
+                        <span class="text-label">Texto Descomprimido (Brotli)</span>
+                        <span class="text-size"><%=formatBytes(Buffer.byteLength(brotliDecompressed))%></span>
+                    </div>
+                    <pre class="text-body"><%=brotliDecompressed%></pre>
+                </div>
+
+                <div class="compression-summary">
+                    <h3>Resumo da Compressão</h3>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <div class="summary-label">Original</div>
+                            <div class="summary-value"><%=formatBytes(originalSize)%></div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Gzip</div>
+                            <div class="summary-value"><%=formatBytes(gzipSize)%></div>
+                            <div class="summary-detail"><%=((1 - gzipSize/originalSize) * 100).toFixed(2)%>% menor</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Brotli</div>
+                            <div class="summary-value"><%=formatBytes(brotliSize)%></div>
+                            <div class="summary-detail"><%=((1 - brotliSize/originalSize) * 100).toFixed(2)%>% menor</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Universidade Federal de Uberlândia - Engenharia Eletrônica e de Telecomunicações</p>
+    </div>
+</body>
+</html>

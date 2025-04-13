@@ -1,0 +1,14 @@
+{
+  "name": "compression-demo",
+  "version": "1.0.0",
+  "description": "Demonstração de compressão Gzip e Brotli",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "compression": "^1.8.0",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  }
+}
