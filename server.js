@@ -964,7 +964,7 @@ app.post('/demo', (req, res) => {
                                 <div class="summary-label">Original</div>
                                 <div class="summary-value">${formatBytes(originalSize)}</div>
                             </div>
-                            <div class="summary-item">
+                            <div class="summary-item"> 
                                 <div class="summary-label">Gzip</div>
                                 <div class="summary-value">${formatBytes(gzipSize)}</div>
                                 <div class="summary-detail">${((1 - gzipSize/originalSize) * 100).toFixed(2)}% menor</div>
