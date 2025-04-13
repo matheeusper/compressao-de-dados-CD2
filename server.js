@@ -172,8 +172,8 @@ app.get('/', (req, res) => {
                 <h2>Seminário CD2</h2>
                 <div class="authors">
                     <span>Matheus Pereira de Andrade</span>
-                    <span>Alfredo Francisco Amancio Mota</span>
-                    <span>Universidade Federal de Uberlândia</span>
+                    <span>Alfredo Francisco Amancio Mota</span><br>
+                    <span>Universidade Federal de Uberlândia</span></span>
                 </div>
             </div>
         </div>
@@ -313,7 +313,7 @@ Após Brotli: [código para div] [código para class]</pre>
                 </div>
 
                 <div class="footer">
-                    <p>Universidade Federal de Uberlândia - 2024</p>
+                    <p>Universidade Federal de Uberlândia - Engenharia Eletrônica e de Telecomunicações</p>
                 </div>
             </div>
         </div>
@@ -909,7 +909,7 @@ app.post('/demo', (req, res) => {
                 <h1>Compressão de Dados</h1>
                 <h2>Seminário - Comunicações Digitais 2</h2>
                 <div class="authors">
-                    <span>Matheus Pereira de Andrade</span>
+                    <span>Matheus Pereira de Andrade</span><br>
                     <span>Alfredo Francisco Amancio Mota</span>
                 </div>
             </div>
@@ -985,9 +985,6 @@ app.post('/demo', (req, res) => {
     </body>
     </html>`);
 });
-
-// Exportar a função para o Vercel
-module.exports = app;
 
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
