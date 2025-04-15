@@ -101,3 +101,18 @@ body {
     font-size: 0.9em;
     color: #27ae60;
 }
+
+.index-button {
+    display: inline-block;
+    background: #3498db;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    margin: 20px 0;
+    transition: background 0.3s;
+}
+.index-button:hover {
+    background: #2980b9;
+}

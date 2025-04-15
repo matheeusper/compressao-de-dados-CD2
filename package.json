@@ -4,11 +4,13 @@
   "description": "Demonstração de compressão Gzip e Brotli",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "dependencies": {
     "compression": "^1.8.0",
     "ejs": "^3.1.10",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "html-minifier": "^4.0.0",
+    "nodemon": "^3.1.9"
   }
 }

@@ -31,6 +31,7 @@
                     <p>Este projeto demonstra os algoritmos de compressão Gzip e Brotli, mostrando como eles funcionam e seus benefícios para a web.</p>
                     
                     <a href="/demo" class="demo-button">Testar Compressão</a>
+                    <a href="/mini" class="mini-button">Testar Minificação</a>
 
                     <div class="explanation">
                         <h2>Como Funcionam os Algoritmos de Compressão</h2>
@@ -48,7 +49,7 @@
                             <div class="algorithm-step">
                                 <h4>Princípio Básico</h4>
                                 <p>O Gzip combina duas técnicas principais para reduzir o tamanho dos dados:</p>
-                                
+                                <img src="imagens/Gzip2.jpg" alt="" width="600px">
                                 <div class="technique">
                                     <h5>LZ77 (Lempel-Ziv 77)</h5>
                                     <p>Identifica padrões e sequências repetitivas no texto, substituindo-as por referências.</p>
@@ -60,6 +61,7 @@ Após LZ77: "ABC" + [referência para repetição]</pre>
                                 </div>
 
                                 <div class="technique">
+                                    <img src="imagens\Gzip.jpg" alt="" width="600px">
                                     <h5>Codificação de Huffman</h5>
                                     <p>Atribui códigos binários de comprimento variável aos caracteres com base em sua frequência.</p>
                                     <div class="example">
@@ -84,11 +86,13 @@ Resultado: "00111"</pre>
                         </div>
 
                         <div class="algorithm-section">
+
+                        <div class="algorithm-section">
                             <h3>2. Como Funciona o Brotli</h3>
                             <div class="algorithm-step">
                                 <h4>Princípio Básico</h4>
                                 <p>O Brotli utiliza uma abordagem diferente, combinando dois conceitos principais:</p>
-                                
+                                <img src="imagens\Brotli.jpg" alt="" width="600px">
                                 <div class="technique">
                                     <h5>Dicionário Pré-definido</h5>
                                     <p>Utiliza um dicionário estático com palavras e padrões comuns da web.</p>
@@ -120,9 +124,39 @@ Após Brotli: [código para div] [código para class]</pre>
                                 </ol>
                             </div>
                         </div>
+                        <h3>3. Minificação</h3>
+                        <div class="algorithm-step">
+                            <h4>Como utilizar html minifier</h4>
+                            <p>A html-minifier é uma biblioteca de minificação de HTML para Node.js. Ela serve para reduzir o tamanho de arquivos HTML ao remover espaços em branco, quebras de linha, comentários e outros caracteres desnecessários, sem alterar a funcionalidade do conteúdo. A principal finalidade da biblioteca é otimizar arquivos HTML para reduzir o tempo de carregamento de páginas e melhorar a performance de sites.</p>
+                            <p>Em um ambiente <b>node.js</b> basta digitar no terminal o seguinte codigo:</p>
+                            <p><b>npm install html-minifier</b></p>
+                           
+                            <div class="technique">
+                                <h5>Caracteristicas principais</h5>
+                                <ul>
+                                    <li>Remoção de espaços em branco: Remove espaços, quebras de linha, tabulações e outros caracteres desnecessários que não afetam o layout ou a funcionalidade da página.</li>
+                                    <li>Remoção de comentários: Elimina todos os comentários no código HTML, o que ajuda a diminuir ainda mais o tamanho do arquivo.</li>
+                                    <li>Minificação de atributos: Ela pode reduzir os atributos dos elementos HTML, como remover atributos com valores padrão (ex: type="text/javascript" em &lt;script&gt;&lt;/script&gt;).</li>
+                                    <li>Compactação de tags e atributos: Algumas tags e atributos podem ser abreviados (por exemplo, &lt;input /&gt; em vez de &lt;input&gt;&lt;/input&gt;).</li>
+                                    <li>Opções configuráveis: Você pode configurar a minificação para atender a diferentes necessidades, como a preservação de certos elementos ou atributos, dependendo da sua aplicação.</li>
+                                    <li>Suporte a inline scripts e estilos: Também pode minificar o conteúdo de scripts ou estilos inline dentro do HTML.</li>
+                                </ul>
+                                <div class="example">
+                                    <div class="example-label">Exemplo:</div>
+                                    <pre>Texto Original: "Ola ,   como   vai você
+                                        ?"
+Minificado: "Ola , como vai você ?"</pre>
+                                </div>
+                            </div>
 
+                        <div class="algorithm-step">
+                            <h4>Aplicação no Contexto de Sites</h4>
+                            <p>Utilizado para retirar espaços desnecessários</p>
+                           
+                        </div>
+                    </div>
                         <div class="process-section">
-                            <h3>3. Do Backend ao Frontend: A Jornada dos Dados</h3>
+                            <h3>4. Do Backend ao Frontend: A Jornada dos Dados</h3>
                             
                             <div class="process-step">
                                 <h4>No Backend (Servidor)</h4>

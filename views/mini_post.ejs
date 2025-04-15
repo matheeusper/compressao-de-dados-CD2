@@ -17,15 +17,23 @@
     </div>
     <div class="container">
         <div class="content">
-            <h2>Resultados da Compressão</h2>
+            <h2>Resultados com a Minificação</h2>
             <div class="text-content">
-                <h2>Seu Texto:</h2>
+                <h2>Texto:</h2>
                 <div class="text-display">
                     <div class="text-header">
                         <span class="text-label">Texto Original</span>
                         <span class="text-size"><%=formatBytes(originalSize)%></span>
                     </div>
                     <pre class="text-body"><%=texto%></pre>
+                </div>
+
+                <div class="text-display">
+                    <div class="text-header">
+                        <span class="text-label">Texto Minificado</span>
+                        <span class="text-size"><%=formatBytes(miniSize)%></span>
+                    </div>
+                    <pre class="text-body"><%=mini%></pre>
                 </div>
                 
                 <div class="text-display">
@@ -45,6 +53,19 @@
                     </div>
                     <pre class="text-body"><%=gzipDecompressed%></pre>
                 </div>
+
+                <div class="text-display">
+                    <div class="text-header">
+                        <span class="text-label">Texto Minificado Comprimido (Gzip)</span>
+                        <span class="text-size">
+                            <%=formatBytes(gzipSizeMini)%> 
+                            (<%=((1 - gzipSizeMini/originalSize) * 100).toFixed(2)%> %menor)
+                        </span>
+                    </div>
+                    <div class="compressed-text">
+                        <pre><%=gzipTextMini%></pre>
+                    </div>
+                </div>
                 
                 <div class="text-display">
                     <div class="text-header">
@@ -58,10 +79,22 @@
                         <pre><%=brotliText%></pre>
                     </div>
                     <div class="text-header decompressed">
-                        <span class="text-label">Texto Descomprimido (Brotli)</span>
-                        <span class="text-size"><%=formatBytes(Buffer.byteLength(brotliDecompressed))%></span>
+                        <span class="text-label">Texto Descomprimido (Brotli)</span><span class="text-size"><%=formatBytes(Buffer.byteLength(brotliDecompressed))%></span>
                     </div>
                     <pre class="text-body"><%=brotliDecompressed%></pre>
+                </div>
+
+                <div class="text-display">
+                    <div class="text-header">
+                        <span class="text-label">Texto Minificado Comprimido (Brotli)</span>
+                        <span class="text-size">
+                            <%=formatBytes(brotliSizeMini)%>
+                             (<%=((1 - brotliSizeMini/originalSize) * 100).toFixed(2)%> % menor)
+                            </span>
+                    </div>
+                    <div class="compressed-text">
+                        <pre><%=brotliTextMini%></pre>
+                    </div>
                 </div>
 
                 <div class="compression-summary">
@@ -72,14 +105,28 @@
                             <div class="summary-value"><%=formatBytes(originalSize)%></div>
                         </div>
                         <div class="summary-item">
+                            <div class="summary-label">Minificado</div>
+                            <div class="summary-value"><%=formatBytes(miniSize)%></div>
+                        </div>
+                        <div class="summary-item">
                             <div class="summary-label">Gzip</div>
                             <div class="summary-value"><%=formatBytes(gzipSize)%></div>
                             <div class="summary-detail"><%=((1 - gzipSize/originalSize) * 100).toFixed(2)%>% menor</div>
                         </div>
                         <div class="summary-item">
+                            <div class="summary-label">Gzip Minificado</div>
+                            <div class="summary-value"><%=formatBytes(gzipSizeMini)%></div>
+                            <div class="summary-detail"><%=((1 - gzipSizeMini/originalSize) * 100).toFixed(2)%>% menor</div>
+                        </div>
+                        <div class="summary-item">
                             <div class="summary-label">Brotli</div>
                             <div class="summary-value"><%=formatBytes(brotliSize)%></div>
                             <div class="summary-detail"><%=((1 - brotliSize/originalSize) * 100).toFixed(2)%>% menor</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Brotli Minificado</div>
+                            <div class="summary-value"><%=formatBytes(brotliSizeMini)%></div>
+                            <div class="summary-detail"><%=((1 - brotliSizeMini/originalSize) * 100).toFixed(2)%>% menor</div>
                         </div>
                     </div>
                 </div>
