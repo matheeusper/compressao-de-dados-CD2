@@ -183,4 +183,3 @@ function stringParaBits(hexString) {
   
     return bits;
   }
-  
