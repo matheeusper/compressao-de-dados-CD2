@@ -15,7 +15,7 @@ Universidade Federal de Uberlândia - Engenharia Eletrônica e de Telecomunicaç
 - Exibição de textos original, comprimido e descomprimido
 - Cálculo de taxas de compressão e economia de dados
 - Explicação detalhada do funcionamento dos algoritmos
-
+ 
 ## Tecnologias Utilizadas
 - Node.js
 - Express.js
